@@ -53,7 +53,7 @@ const ProductList = () => {
 
     return (
         <section className="container mx-auto">
-            <div className="w-1/2 max-w-full overflow-hidden flex ">
+            <div className="max-w-sm overflow-hidden flex ">
                 <Select value={selectedCategory} onValueChange={handleCategoryChange}>
                     <SelectTrigger className="w-full border border-gray-300 rounded p-2 mb-4">
                         <SelectValue placeholder="All Categories" />
