@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Sembark E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce web application built with React and TypeScript.
 
-Currently, two official plugins are available:
+Link: https://sembark.nishantgaharwar.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- **React 18** — UI library
+- **TypeScript** — Type safety
+- **Vite** — Build tool and dev server
+- **Tailwind CSS** — Utility-first styling
+- **TanStack Query** — Server state management and data fetching
+- **shadcn/ui** — Component library
+- **React Router v6** — Client-side routing
+- **Playwright** — End-to-end testing
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Product listing with category filter and pagination
+- Filters and pagination persist in the URL — fully shareable links
+- Product detail page with dynamic routing
+- Cart with add/remove functionality
+- Cart state persisted in localStorage
+- Mobile responsive
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd sembark
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. Set up environment variables
+
+Create a `.env` file in the root of the project:
+
+```env
+VITE_BASE_URL=https://api.escuelajs.co/api/v1
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Running Tests
+
+### Install Playwright browsers (first time only)
+
+```bash
+npx playwright install
+```
+
+### Run all tests
+
+```bash
+npx playwright test
+```
+
+### Run tests with UI mode
+
+```bash
+npx playwright test --ui
+```
+
+### Run a specific test file
+
+```bash
+npx playwright test tests/cart.spec.ts
 ```
