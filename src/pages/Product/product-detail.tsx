@@ -59,7 +59,7 @@ const ProductDetail = () => {
                     <h1 className="text-2xl font-bold">{product.title}</h1>
                     <p className="text-gray-600 text-sm leading-relaxed">{product.description}</p>
                     <p className="text-xl font-semibold">${product.price}</p>
-                    <p>Quantity: {getItems?.quantity}</p>
+                    <p>Quantity: {getItems?.quantity || 0}</p>
                     <Button variant={'outline'} onClick={handleAddToCart}>+</Button>
                     <Button variant={'outline'} onClick={() => decreaseQuantity(getItems!.id)}>-</Button>
                     {/* <Button
