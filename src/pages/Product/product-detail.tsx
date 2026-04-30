@@ -10,7 +10,7 @@ import Error from "@/components/error";
 const ProductDetail = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
-    const { addItem } = useCart();
+    const { addItem, items, decreaseQuantity } = useCart();
     const [added, setAdded] = useState(false);
 
     const data = useFetch({
@@ -35,6 +35,9 @@ const ProductDetail = () => {
         setTimeout(() => setAdded(false), 1500);
     };
 
+    const getItems = items.find(idx => idx.id === data.data.id)
+
+    console.log(getItems)
     return (
         <div className="container mx-auto p-6 max-w-4xl">
             <Button
@@ -56,7 +59,10 @@ const ProductDetail = () => {
                     <h1 className="text-2xl font-bold">{product.title}</h1>
                     <p className="text-gray-600 text-sm leading-relaxed">{product.description}</p>
                     <p className="text-xl font-semibold">${product.price}</p>
-                    <Button
+                    <p>Quantity: {getItems?.quantity}</p>
+                    <Button variant={'outline'} onClick={handleAddToCart}>+</Button>
+                    <Button variant={'outline'} onClick={() => decreaseQuantity(getItems!.id)}>-</Button>
+                    {/* <Button
                         onClick={handleAddToCart}
                         className={`mt-auto py-3 px-6 rounded transition-all cursor-pointer ${
                             added
@@ -65,7 +71,7 @@ const ProductDetail = () => {
                         }`}
                     >
                         {added ? "Added" : "Add to Cart"}
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
         </div>
