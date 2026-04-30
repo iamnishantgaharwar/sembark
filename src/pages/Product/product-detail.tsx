@@ -11,7 +11,7 @@ const ProductDetail = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
     const { addItem, items, decreaseQuantity } = useCart();
-    const [added, setAdded] = useState(false);
+    const [_, setAdded] = useState(false);
 
     const data = useFetch({
         url: `${import.meta.env.VITE_BASE_URL}/products/slug/${slug}`,
